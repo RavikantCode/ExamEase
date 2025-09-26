@@ -5,7 +5,8 @@ import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import { IoEyeOutline, IoEyeOffOutline } from 'react-icons/io5';
-
+import { Input } from '@/components/ui/input';
+import { Button } from '@/components/ui/button';
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [username, setUsername] = useState('');
@@ -64,48 +65,52 @@ export default function LoginPage() {
         )}
 
         <form onSubmit={onSubmit} className="space-y-5 sm:space-y-6">
-          <div className="space-y-2">
-            <label className="block text-sm font-medium text-gray-300">
-              Moodle Id<span className="text-purple-500"></span>
-            </label>
-            <input
-              type="text"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition text-sm sm:text-base"
-              placeholder="Enter your Moodle Id"
-              required
-            />
-          </div>
+        <div className="space-y-2">
+  <label className="block text-sm font-medium text-gray-300">
+    Moodle Id
+  </label>
+  <Input
+    type="text"
+    value={username}
+    onChange={(e) => setUsername(e.target.value)}
+    placeholder="Enter your Moodle Id"
+    required
+    className="w-full px-4 py-6 rounded-lg border border-gray-300
+               focus:ring-2 focus:ring-purple-500 focus:border-transparent
+               outline-none transition text-sm sm:text-base text-white
+               placeholder-gray-400"
+  />
+</div>
 
-          <div className="space-y-2">
-            <label className="block text-sm font-medium text-gray-300">
-              Password<span className="text-purple-500"></span>
-            </label>
-            <div className="relative">
-              <input
-                type={showPassword ? 'text' : 'password'}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-purple-500 focus:border-transparent outline-none transition text-sm sm:text-base"
-                placeholder="Enter your password"
-                required
-              />
-              <button
-                type="button"
-                onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-500 hover:text-gray-700"
-              >
-                {showPassword ? 
-                  <IoEyeOffOutline className="w-5 h-5 sm:w-6 sm:h-6" /> : 
-                  <IoEyeOutline className="w-5 h-5 sm:w-6 sm:h-6" />
-                }
-              </button>
-            </div>
-          </div>
-<button
+<div className="space-y-2">
+  <label className="block text-sm font-medium text-gray-300">
+    Password
+  </label>
+  <div className="relative">
+    <Input
+      type={showPassword ? 'text' : 'password'}
+      value={password}
+      onChange={(e) => setPassword(e.target.value)}
+      placeholder="Enter your password"
+      required
+      className="w-full pr-12 px-4 py-6 rounded-lg border border-gray-300
+                 focus:ring-2 focus:ring-purple-500 focus:border-transparent
+                 outline-none transition text-sm sm:text-base text-white
+                 placeholder-gray-400"
+    />
+    <button
+      type="button"
+      onClick={() => setShowPassword(!showPassword)}
+      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-200"
+    >
+      {showPassword ? <IoEyeOffOutline className="w-5 h-5" /> : <IoEyeOutline className="w-5 h-5" />}
+    </button>
+  </div>
+</div>
+
+<Button
   type="submit"
-  className="w-full mt-4 py-3 px-4 bg-purple-500 hover:bg-purple-700 text-white rounded-lg transition duration-200 text-sm sm:text-base flex items-center justify-center"
+  className="w-full mt-4 py-6 px-5 bg-purple-500 hover:bg-purple-700 text-white rounded-lg transition duration-200 text-sm sm:text-base flex items-center justify-center"
 >
   <span className={isLoading ? '' : 'hidden'}>
     <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -116,7 +121,7 @@ export default function LoginPage() {
   <span>
     {isLoading ? 'Signing in...' : 'Continue'}
   </span>
-</button>
+</Button>
         </form>
       </div>
     </main>

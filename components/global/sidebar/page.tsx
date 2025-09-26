@@ -63,7 +63,7 @@ const Sidebar = ({session}:Props) => {
       </div>
 
       {/* Separator */}
-      <div className="w-4/5 h-[1px] bg-muted/50 my-4"></div>
+      <div className="w-full h-[1px] bg-muted/50 my-4"></div>
 
       {/* Logout Section */}
       <div className="w-full mt-auto">
