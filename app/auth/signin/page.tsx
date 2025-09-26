@@ -45,7 +45,13 @@ export default function LoginPage() {
 
         <div className="text-center space-y-2">
           <h1 className="text-2xl font-bold text-white">
-            E<span className="text-3xl sm:text-4xl relative top-1 text-purple-500">X</span>amEase
+          <span className="text-2xl md:text-2xl font-semibold text-white">
+  E
+  <span className="text-2xl md:text-4xl relative top-1 bg-gradient-to-r from-purple-500 to-[#111111] bg-clip-text text-transparent">
+    X
+  </span>
+  amEase
+</span>
           </h1>
           <h2 className="text-xl sm:text-2xl text-gray-300">Welcome</h2>
           <p className="text-sm sm:text-base text-gray-400">Log in to ExamEase to continue.</p>
@@ -99,7 +105,7 @@ export default function LoginPage() {
           </div>
 <button
   type="submit"
-  className="w-full mt-4 py-3 px-4 bg-purple-600 hover:bg-purple-700 text-white rounded-lg transition duration-200 text-sm sm:text-base flex items-center justify-center"
+  className="w-full mt-4 py-3 px-4 bg-purple-500 hover:bg-purple-700 text-white rounded-lg transition duration-200 text-sm sm:text-base flex items-center justify-center"
 >
   <span className={isLoading ? '' : 'hidden'}>
     <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">

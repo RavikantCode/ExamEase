@@ -1,9 +1,9 @@
 
 'use client';
 import Link from 'next/link';
-import Navbar from './components/Navbar';
-import FeatureCard from './components/FeatureCard';
-import Footer from './components/Footer';
+import Navbar from './(frontend)/_components/Navbar';
+import FeatureCard from './(frontend)/FeatureCard';
+import Footer from './(frontend)/Footer';
 import Image from 'next/image';
 
 import { GrSchedules } from "react-icons/gr";

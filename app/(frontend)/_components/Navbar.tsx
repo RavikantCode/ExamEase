@@ -60,7 +60,11 @@ export default function Navbar() {
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex-shrink-0">
             <span className="text-xl md:text-2xl font-bold">
-              E<span className="text-2xl md:text-4xl relative top-1 text-purple-500">X</span>amEase
+            E
+  <span className="text-2xl md:text-4xl relative top-1 bg-gradient-to-r from-purple-500 to-[#111111] bg-clip-text text-transparent">
+    X
+  </span>
+  amEase
             </span>
           </Link>
           
@@ -74,7 +78,7 @@ export default function Navbar() {
           
           <div className="hidden md:block flex-shrink-0">
             <Link
-              href="/signin"
+              href="/auth/signin"
               className="bg-white text-black px-5 py-3.5 rounded-xl text-sm hover:bg-gray-100 transition"
             >
               Login →
@@ -107,7 +111,7 @@ export default function Navbar() {
             <NavLink href="/#about">About</NavLink>
             <div className="px-4 pt-2">
               <Link
-                href="/signin"
+                href="/auth/signin"
                 className="block w-full text-center bg-white text-black py-3 rounded-lg text-sm hover:bg-gray-100 transition"
                 onClick={() => setIsMenuOpen(false)}
               >

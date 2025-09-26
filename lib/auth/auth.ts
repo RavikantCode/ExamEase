@@ -4,6 +4,12 @@ import bcrypt from 'bcrypt'
 import { PrismaClient } from "@/app/generated/prisma";
 import { NextAuthOptions } from "next-auth";
 
+interface CustomUser {
+  id: string;
+  name: string;
+  moodle_id: string;
+}
+
 const prisma = new PrismaClient()
 
 export const authOptions:NextAuthOptions ={
@@ -14,7 +20,7 @@ export const authOptions:NextAuthOptions ={
                 username:{label:"Moodle Id",type:"text"},
                 password:{label:"Password",type:"password"}
             },
-            async authorize(credentials:any) {
+            async authorize(credentials: { username: string; password: string } | undefined) {
                 if (!credentials?.username || !credentials?.password) {
                    
                     throw new Error("Missing credentials");
@@ -68,7 +74,7 @@ export const authOptions:NextAuthOptions ={
             return token;
         },
 
-        async session({ session, token }: any) {
+        async session({ session, token }: { session: any; token: any }) {
 
             if (session && session.user) {
                 session.user.id = token.id;
