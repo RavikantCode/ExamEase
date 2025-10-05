@@ -1,36 +1,85 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎓 ExamEase –  AI-Powered Platform for Streamlined Exam Management and Transparent Academic Remuneration
 
-## Getting Started
 
-First, run the development server:
+[![Built with Next.js](https://img.shields.io/badge/Built%20with-Next.js-black?logo=next.js)](https://nextjs.org/)  
+[![Node.js](https://img.shields.io/badge/Node.js-16+-green?logo=node.js)](https://nodejs.org/)  
 
+**ExamEase** is a **Next.js project** bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app) for **managing college exam scheduling, seating arrangements, and faculty remuneration**.  
+It automates complex administrative tasks, making exam management efficient and error-free.
+
+---
+
+## 🛠 System Overview
+
+ExamEase handles:
+
+- **🗓 Exam Timetable Generation** – Dynamically generates timetables based on courses, departments, faculty availability, and exam duration.  
+- **🪑 Seating Arrangement** – Assigns students to rooms while ensuring no conflicts (e.g., same-subject students not seated together).  
+- **💰 Remuneration Management** – Calculates faculty payment based on invigilation hours and assigned exams.
+
+---
+
+## ✨ Features
+
+### 📌 Dynamic Exam Timetable
+- Configurable **maximum exams per day**  
+- **Exam time gaps**  
+- **Working hours & holidays**  
+
+### 📌 Intelligent Seating Arrangement
+- Split large batches into **multiple rooms**  
+- Assign **multiple invigilators** based on student count  
+
+### 📌 Faculty Management
+- Track **invigilation hours per day**  
+- Auto-calculate **remuneration**  
+
+### 📌 Data Management
+- CSV upload for **courses, faculty, and room data**  
+- **Interactive admin dashboard** (Next.js frontend)
+
+---
+
+## 💻 Tech Stack
+
+- **Frontend:** Next.js, TypeScript, React  
+- **Backend:** Node.js, Express  
+- **Database:** SupaBase ,Prisma ORM 
+- **State Management:** Redux  
+- **Styling:** Tailwind CSS  
+- **Deployment:** Docker ,AWS 
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/<your-username>/ExamEase.git
+cd ExamEase
+```
+### 2.Install the Dependencies
+```bash
+npm install
+```
+### 3.Generate Auto-generated clients
+```bash
+npx prisma generate
+```
+### 4.Run the Server
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
+## 🗂 Project Structure
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Pages & Components: app/ src
+- API Endpoints: app/src/api
+- Database Models: prisma/schema.prisma
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🎯 Future Enhancements
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Role-based authentication for admin/faculty
+- PDF export of timetables and seating charts
+- Email notifications for students and faculty
+- Analytics dashboard for exam & invigilation data
+- Integration with college ERP systems
