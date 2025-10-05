@@ -16,16 +16,15 @@ const CourseForm: React.FC<CourseFormProps> = ({ setCourses }) => {
     name: "",
     semester: "",
     subject: "",
-    students: 0,
   });
 
   const addCourse = () => {
     if (newCourse.code && newCourse.name) {
       setCourses((prev) => [
         ...prev,
-        { ...newCourse, id: Date.now().toString(), students: Number(newCourse.students) || 0 },
+        { ...newCourse, id: Date.now().toString() },
       ]);
-      setNewCourse({ code: "", name: "", semester: "", subject: "", students: 0 });
+      setNewCourse({ code: "", name: "", semester: "", subject: ""});
     }
   };
 
@@ -41,24 +40,14 @@ const CourseForm: React.FC<CourseFormProps> = ({ setCourses }) => {
         value={newCourse.name}
         onChange={(e) => setNewCourse({ ...newCourse, name: e.target.value })}
       />
-      <div className="grid grid-cols-2 gap-2">
+      <div className=" gap-2">
         <Input
           placeholder="Semester"
           value={newCourse.semester}
           onChange={(e) => setNewCourse({ ...newCourse, semester: e.target.value })}
         />
-        <Input
-          placeholder="Subject"
-          value={newCourse.subject}
-          onChange={(e) => setNewCourse({ ...newCourse, subject: e.target.value })}
-        />
       </div>
-      <Input
-        type="number"
-        placeholder="Students Count"
-        value={newCourse.students}
-        onChange={(e) => setNewCourse({ ...newCourse, students: Number(e.target.value) })}
-      />
+     
       <Button onClick={addCourse} className="w-full">
         <Plus className="h-4 w-4 mr-2" /> Add Course
       </Button>

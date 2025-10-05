@@ -4,7 +4,6 @@ export interface Course {
     name: string;
     semester: string;
     subject: string;
-    students: number;
   }
   
   export interface Teacher {

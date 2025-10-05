@@ -8,9 +8,6 @@ import {
     GeneratedTimetable,
   } from "./types";
   
-  /**
-   * Generate all time slots for a day based on configuration.
-   */
   export const calculateTimeSlots = (config: Config): TimeSlot[] => {
     const slots: TimeSlot[] = [];
     const [startHour, startMinute] = config.startTime.split(":").map(Number);
@@ -36,10 +33,7 @@ import {
     return slots;
   };
   
-  /**
-   * Generate an exam timetable.
-   * Assigns courses into available slots, rooms, and teachers.
-   */
+
   export const generateTimetable = (
     courses: Course[],
     teachers: Teacher[],
@@ -63,7 +57,7 @@ import {
 
       if (teachers.length === 0 || rooms.length === 0) {
         unscheduled.push(course);
-        return;                             // Skip further processing for this course -- change krna baaki  
+        return;                             
       }
     
   

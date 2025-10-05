@@ -36,7 +36,7 @@ const CourseList: React.FC<CourseListProps> = ({ courses, setCourses }) => {
                   <div className="font-medium">{course.code}</div>
                   <div className="text-gray-600">{course.name}</div>
                   <div className="text-xs text-gray-500">
-                    {course.semester} | {course.students} students
+                    Semester - {course.semester}
                   </div>
                 </div>
                 <Button variant="destructive" size="sm" onClick={() => removeCourse(course.id)}>

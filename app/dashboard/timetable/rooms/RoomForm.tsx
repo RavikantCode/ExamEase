@@ -13,30 +13,19 @@ interface RoomFormProps {
 
 const RoomForm: React.FC<RoomFormProps> = ({ newRoom, setNewRoom, addRoom }) => {
   return (
-    <div className="space-y-3">
-      {/* <Input
-        placeholder="Room Name/Number"
-        value={newRoom.name}
-        onChange={(e) => setNewRoom({ ...newRoom, name: e.target.value })}
-      />
-      <Input
-        type="number"
-        placeholder="Capacity"
-        value={newRoom.capacity}
-        onChange={(e) => setNewRoom({ ...newRoom, capacity: parseInt(e.target.value) || 0 })}
-      /> */}
+    <div className="space-y-3 bg-white p-5 border rounded-lg">
       <Input
   placeholder="Room Name/Number"
   value={newRoom.name}
   onChange={(e) => setNewRoom({ ...newRoom, name: e.target.value })}
-  className="!text-white !placeholder-gray-300 !bg-gray-800 !border-gray-600"
+  className="text-black placeholder-gray-300  border-gray-300"
 />
 <Input
   type="number"
   placeholder="Capacity"
   value={newRoom.capacity}
   onChange={(e) => setNewRoom({ ...newRoom, capacity: parseInt(e.target.value) || 0 })}
-  className="!text-white !placeholder-gray-300 !bg-gray-800 !border-gray-600"
+  className="text-black placeholder-gray-300  border-gray-300"
 />
 
       <Button onClick={addRoom} className="w-full">

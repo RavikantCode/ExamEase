@@ -58,7 +58,6 @@
 // }
 
 
-// app/dashboard/remuneration/services/calculations.ts
 import { Activity } from '../types/activity';
 
 const difficultyMultiplier = { easy: 1, medium: 1.5, hard: 2.5 };
@@ -80,7 +79,6 @@ export function calculateInsights(activities: Activity[], grandTotal: number, es
   const avgRate = totalCount ? (grandTotal / totalCount) : 0;
   const mostCommon = activeActivities.reduce((acc, curr) => (acc.count > curr.count ? acc : curr), activeActivities[0] || { type: 'N/A', count: 0 });
   
-  // Enhanced insights for ExamEase
   const categoryBreakdown = activeActivities.reduce((acc, a) => {
     acc[a.category] = (acc[a.category] || 0) + a.count;
     return acc;
@@ -139,7 +137,7 @@ export function addActivityFromTemplate(
     id: newId,
     type: template.type || 'Custom Activity',
     category: (template.category as Activity['category']) || 'assessment',
-    semester: facultySemester, // Changed from 'sem' to 'semester'
+    semester: facultySemester, 
     subject: '',
     count: 0,
     rate: template.rate || 0,
@@ -183,7 +181,6 @@ export function createCustomActivity(
   return [...activities, newActivity];
 }
 
-// Helper function to get semester-wise summary
 export function getSemesterWiseSummary(activities: Activity[]) {
   const activeActivities = activities.filter(a => a.count > 0);
   return activeActivities.reduce((acc, a) => {
@@ -203,7 +200,6 @@ export function getSemesterWiseSummary(activities: Activity[]) {
   }, {} as Record<string, { totalAmount: number; totalCount: number; activities: number; subjects: Set<string> }>);
 }
 
-// Helper function to get activity efficiency score
 export function getActivityEfficiencyScore(activity: Activity): number {
   if (activity.count === 0) return 0;
   const baseScore = activity.rate * activity.count;
