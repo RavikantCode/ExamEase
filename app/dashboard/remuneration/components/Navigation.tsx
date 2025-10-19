@@ -16,7 +16,7 @@ export default function Navigation({ onPrev, onNext, currentStep, stepsLength }:
   return (
     <div className="mt-8 bg-[#000000] backdrop-blur-xl border border-gray-800 shadow-2xl rounded-2xl overflow-hidden">
       {/* Progress Header */}
-      <div className="bg-gradient-to-r from-purple-500 to-[#111111] p-4">
+      <div className="bg-gradient-to-r from-[#0B0B0B] via-[#3B0764] to-[#0B0B0B] p-4">
         <div className="flex items-center justify-between mb-3">
           <div className="text-white font-semibold text-sm">
             Step {currentStep + 1} of {stepsLength}
@@ -80,7 +80,7 @@ export default function Navigation({ onPrev, onNext, currentStep, stepsLength }:
               flex items-center gap-3 px-6 py-3 rounded-xl font-medium transition-all duration-200
               ${currentStep === stepsLength - 1 
                 ? 'bg-gray-800 text-gray-500 cursor-not-allowed opacity-50' 
-                : 'bg-gradient-to-r from-purple-500 to-cyan-500 text-white shadow-lg hover:from-purple-600 hover:to-cyan-600 active:scale-95 hover:shadow-xl hover:shadow-purple-500/25'
+                : 'bg-gradient-to-r from-[#3B0764] via-[#3B0764] to-[#0B0B0B] text-white shadow-lg hover:from-purple-600  active:scale-95 hover:shadow-xl hover:shadow-purple-500/25'
               }
             `}
           >

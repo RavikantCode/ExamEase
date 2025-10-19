@@ -22,10 +22,10 @@ export default function Stepper({ steps, currentStep }: Props) {
             <div
               className={`flex items-center gap-3 px-6 py-4 rounded-2xl shadow-lg backdrop-blur-sm transition-all duration-500 hover:scale-102 border
                 ${isActive
-                  ? 'bg-gradient-to-r from-purple-500 via-purple-600 to-cyan-500 text-white shadow-purple-500/25 border-purple-400/30 animate-pulse'
+                  ? 'bg-gradient-to-r from-purple-500 via-purple-600 to-[#0B0B0B] text-white shadow-purple-500/25 border-purple-400/30 animate-pulse'
                   : isCompleted
-                  ? 'bg-gradient-to-r from-purple-400 to-cyan-400 text-white shadow-purple-400/20 border-purple-300/30'
-                  : 'bg-gray-900/50 text-gray-300 border-gray-700/50 hover:bg-gray-800/60'
+                  ? 'bg-gradient-to-r from-purple-500 via-purple-600 to-[#0B0B0B] text-white shadow-purple-400/20 border-purple-300/30'
+                  : 'bg-gray-800/50 text-gray-300 border-gray-700/50 hover:bg-gray-800/60'
                 }`}
             >
               <div

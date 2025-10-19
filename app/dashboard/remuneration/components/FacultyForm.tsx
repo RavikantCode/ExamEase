@@ -22,12 +22,12 @@ export default function FacultyForm({
     getSemesterSuggestions,
     getClassSuggestions
   );
-
+  // from-[#8B5CF6] via-[#3B0764] to-[#0B0B0B] this was the original color of header to use 
   return (
-    <div className="bg-[#000000] backdrop-blur-xl border border-gray-800 shadow-2xl rounded-2xl overflow-hidden">
+    <div className="bg-[#000000] shadow-[0_0_20px_rgba(139,92,246,0.15)] backdrop-blur-xl border border-gray-800  rounded-2xl overflow-hidden">
       
       {/* Header Section */}
-      <div className="bg-gradient-to-r from-purple-500 to-[#111111] p-6">
+      <div className="bg-gradient-to-r from-[#0B0B0B] via-[#3B0764] to-[#0B0B0B] p-6">
         <div className="flex items-center gap-3">
           <div className="p-3 bg-cyan-400/20 rounded-xl">
             <User className="text-cyan-400" size={24} />

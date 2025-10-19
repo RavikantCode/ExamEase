@@ -41,13 +41,15 @@ export default function Home() {
 
             <div className="flex justify-center lg:justify-end order-1 lg:order-2">
               <Image 
-                src={'/man.jpeg'} 
+                src={'/man3.png'} 
                 alt='Man_Image' 
                 height={300}
                 width={300}
-                className="sm:w-80 sm:h-80 md:w-96 md:h-96 lg:w-[400px] lg:h-[400px] rounded-lg object-cover"
+                // lg:w-[400px] lg:h-[400px]
+                className="sm:w-80 sm:h-80 md:w-96 md:h-96 rounded-6xl object-cover"
               />
             </div>
+            
           </div>
         </div>
       </section>

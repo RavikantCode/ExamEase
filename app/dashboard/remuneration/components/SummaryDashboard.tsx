@@ -76,7 +76,7 @@ export default function SummaryDashboard({
   console.log("Export disabled status:", disabledExport);
 
   return (
-    <div className="space-y-8 p-6">
+    <div className="space-y-8 p-1">
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {/* Total Amount */}
@@ -145,7 +145,7 @@ export default function SummaryDashboard({
       </div>
 
       {/* Export Section */}
-      <div className="bg-gradient-to-br from-gray-900/95 to-gray-800/95 border border-purple-500/30 p-8 rounded-2xl shadow-2xl backdrop-blur-sm relative overflow-hidden">
+      <div className="bg-black  border border-purple-500/30 p-8 rounded-2xl shadow-2xl backdrop-blur-sm relative overflow-hidden">
         {/* Animated background gradient */}
         <div className="absolute inset-0 bg-gradient-to-r from-purple-600/5 via-cyan-500/5 to-purple-600/5 animate-pulse"></div>
 
@@ -154,7 +154,7 @@ export default function SummaryDashboard({
             <div className="p-2 bg-gradient-to-r from-purple-500/20 to-cyan-500/20 rounded-lg mr-3 backdrop-blur-sm">
               <Sparkles className="text-purple-400" size={20} />
             </div>
-            <span className="bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="text-[#bababa] bg-clip-text ">
               Export Your Report
             </span>
           </h3>
@@ -164,7 +164,7 @@ export default function SummaryDashboard({
             <button
               onClick={handleExportClick}
               disabled={disabledExport}
-              className="w-full bg-gradient-to-r from-purple-600 via-purple-500 to-cyan-500 text-white py-4 px-6 rounded-2xl flex items-center justify-center space-x-3 
+              className="w-full bg-gradient-to-r from-[#3B0764] via-[#3B0764] to-[#0B0B0B] text-white py-4 px-6 rounded-2xl flex items-center justify-center space-x-3 
                          disabled:opacity-50 disabled:cursor-not-allowed shadow-xl hover:shadow-purple-500/40 transition-all duration-300 transform hover:scale-105 group relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
@@ -181,7 +181,7 @@ export default function SummaryDashboard({
             {/* Send to Administration Button */}
             <button
               onClick={handleSendToAdmin}
-              className="w-full bg-gradient-to-r from-cyan-600 via-purple-500 to-pink-500 text-white py-4 px-6 rounded-2xl flex items-center justify-center space-x-3
+              className="w-full bg-gradient-to-r from-[#3B0764] via-[#3B0764] to-[#0B0B0B] text-white py-4 px-6 rounded-2xl flex items-center justify-center space-x-3
                          shadow-xl hover:shadow-cyan-500/40 transition-all duration-300 transform hover:scale-105 group relative overflow-hidden"
             >
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>

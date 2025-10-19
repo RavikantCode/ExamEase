@@ -5,6 +5,7 @@ import { LogOut, Menu, Clock } from "lucide-react";
 import SidebarItem from "./Sidebar-item";
 import { MENU_ITEMS } from "@/constants/menu-items";
 import Image from "next/image";
+import { Separator } from "@/components/ui/separator";
 
 type Props={
   session:any
@@ -21,12 +22,12 @@ const Sidebar = ({session}:Props) => {
   };
 
   const SidebarSection = (
-    <div className="bg-[#000000] fixed top-0 left-0 h-screen w-[280px] flex flex-col gap-4 p-4 overflow-hidden">
+    <div className="bg-[#000000] fixed top-0 left-0 h-screen w-[250px] flex flex-col gap-4 p-4 overflow-hidden">
       
       <div className="flex flex-col items-center justify-center gap-1 p-4 w-full mb-4">
   <div className="relative overflow-hidden h-36 w-36 rounded-xl flex items-center justify-center mb-2">
     <Image
-      src="/5-real.png"
+      src="/logo-new.png"
       alt="opal-image"
       fill
       className="object-contain"
@@ -34,7 +35,7 @@ const Sidebar = ({session}:Props) => {
   </div>
   <span className="text-2xl md:text-2xl font-semibold text-white">
   E
-  <span className="text-2xl md:text-4xl relative top-1 bg-gradient-to-r from-purple-500 to-[#111111] bg-clip-text text-transparent">
+  <span className="text-2xl md:text-4xl relative top-1 bg-gradient-to-r from-[#8B5CF6] to-[#0B0B0B] bg-clip-text text-transparent">
     X
   </span>
   amEase
@@ -62,8 +63,7 @@ const Sidebar = ({session}:Props) => {
         </nav>
       </div>
 
-      {/* Separator */}
-      <div className="w-full h-[1px] bg-muted/50 my-4"></div>
+      <Separator className="bg-neutral-700"></Separator>
 
       {/* Logout Section */}
       <div className="w-full mt-auto">
@@ -79,7 +79,7 @@ const Sidebar = ({session}:Props) => {
    
       <div className="w-full mt-4">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-gradient-to-br from-purple-500 to-[#111111] rounded-full flex items-center justify-center">
+          <div className="w-8 h-8 bg-gradient-to-br from-[#8B5CF6] via-[#3B0764] to-[#0B0B0B] rounded-full flex items-center justify-center">
             <span className="text-white text-xs font-bold">{session.user?.name[0]}</span>
           </div>
           <div className="flex-1">

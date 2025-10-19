@@ -699,7 +699,7 @@ export default function RemunerationSystem() {
   } = useRemuneration();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-950 text-gray-100">
+    <div className="min-h-screen bg-gradient-to-br from-black via-black to-gray-950 text-gray-100">
       <div className="max-w-7xl mx-auto p-6">
         {/* Header */}
         {/* <div className="text-center mb-10">

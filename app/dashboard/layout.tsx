@@ -20,8 +20,8 @@ export default async function DashboardLayout({ children }: Props) {
          <Sidebar session={session} />
       </div>
 
-      <div className="flex-1 ml-64 flex flex-col">
-        <main className="p-6">{children}</main>
+      <div className="flex-1 ml-61 flex flex-col">
+        <main className="p-1">{children}</main>
       </div>
     </div>
   );

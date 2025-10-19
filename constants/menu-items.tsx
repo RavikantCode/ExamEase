@@ -3,7 +3,8 @@ import {
     DollarSign, 
     Users, 
     Home, 
-    Settings 
+    Settings, 
+    Bell
   } from "lucide-react";
   
   export interface MenuItem {
@@ -33,6 +34,11 @@ import {
       title: "Seating Arrangement",
       href: "/dashboard/seating",
       icon: <Users size={18} />
+    },
+    {
+      title:"Notification",
+      href:'/dashboard/notification',
+      icon:<Bell size={18}/>
     },
     {
       title: "Settings",

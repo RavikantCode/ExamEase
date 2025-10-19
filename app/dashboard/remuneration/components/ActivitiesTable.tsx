@@ -404,9 +404,9 @@ export default function ActivitiesTable({
   };
 
   return (
-    <div className="bg-gradient-to-br from-gray-900/95 to-gray-800/95 backdrop-blur-xl border border-purple-500/20 shadow-2xl rounded-2xl overflow-hidden">
+    <div className="bg-gradient-to-br shadow-[0_0_20px_rgba(139,92,246,0.15)] from-gray-900/95 to-gray-800/95 backdrop-blur-xl border border-purple-500/20  rounded-2xl overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-purple-600 via-purple-500 to-cyan-500 p-6 relative overflow-hidden">
+      <div className="bg-gradient-to-r from-[#0B0B0B] via-[#3B0764] to-[#0B0B0B] p-6 relative overflow-hidden">
         <div className="relative z-10 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <div className="p-3 bg-white/20 rounded-xl backdrop-blur-sm">
