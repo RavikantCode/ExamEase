@@ -35,7 +35,7 @@ const Sidebar = ({session}:Props) => {
   </div>
   <span className="text-2xl md:text-2xl font-semibold text-white">
   E
-  <span className="text-2xl md:text-4xl relative top-1 bg-gradient-to-r from-[#8B5CF6] to-[#0B0B0B] bg-clip-text text-transparent">
+  <span className="text-2xl md:text-4xl relative top-1 bg-linear-to-r from-[#8B5CF6] to-[#0B0B0B] bg-clip-text text-transparent">
     X
   </span>
   amEase
@@ -79,7 +79,7 @@ const Sidebar = ({session}:Props) => {
    
       <div className="w-full mt-4">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 bg-gradient-to-br from-[#8B5CF6] via-[#3B0764] to-[#0B0B0B] rounded-full flex items-center justify-center">
+          <div className="w-8 h-8 bg-linear-to-br from-[#8B5CF6] via-[#3B0764] to-[#0B0B0B] rounded-full flex items-center justify-center">
             <span className="text-white text-xs font-bold">{session.user?.name[0]}</span>
           </div>
           <div className="flex-1">
