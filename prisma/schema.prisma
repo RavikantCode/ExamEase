@@ -8,14 +8,22 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  FACULTY
+  ADMIN
+}
+
+
 model User {
   id        String   @id @default(cuid())
   moodle_id String   @unique
   password  String
   name      String
+  role      Role     @default(FACULTY)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
+
 
 model Faculty {
   id         Int        @id @default(autoincrement())

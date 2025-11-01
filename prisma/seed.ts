@@ -1,76 +1,85 @@
-import { PrismaClient } from '../app/generated/prisma';
+import { PrismaClient, Role } from '../app/generated/prisma';
 import bcrypt from 'bcrypt';
 
 const prisma = new PrismaClient();
 
 async function main() {
     try {
-        console.log('Starting database seeding...');
+        console.log('🚀 Starting database seeding...');
 
-        const alice = await prisma.user.upsert({
-            where: {
-                moodle_id: '22104194'
-            },
+        const ravi = await prisma.user.upsert({
+            where: { moodle_id: '22104194' },
             update: {
-                password: await bcrypt.hash('alice', 10),
-                name: 'Alice Johnson',
+                password: await bcrypt.hash('ravikant', 10),
+                name: 'Ravikant Yadav',
             },
             create: {
                 moodle_id: '22104194',
-                password: await bcrypt.hash('alice', 10),
-                name: 'Alice Johnson',
-            }
-        })
-
-        console.log('✅ Created/Updated user Alice:', alice)
-
-        const bob = await prisma.user.upsert({
-            where: {
-                moodle_id: '22104195'
+                password: await bcrypt.hash('ravikant', 10),
+                name: 'Ravikant Yadav',
+                role: Role.FACULTY,
             },
+        });
+        console.log('✅ Created/Updated user ravi:', ravi);
+
+        const nitesh = await prisma.user.upsert({
+            where: { moodle_id: '22104098' },
             update: {
-                password: await bcrypt.hash('bob123', 10),
-                name: 'Bob Smith',
+                password: await bcrypt.hash('nitesh', 10),
+                name: 'Nitesh Soni',
             },
             create: {
-                moodle_id: '22104195',
-                password: await bcrypt.hash('bob123', 10),
-                name: 'Bob Smith',
-            }
-        })
-
-        console.log('✅ Created/Updated user Bob:', bob)
-
-        const teacher = await prisma.user.upsert({
-            where: {
-                moodle_id: 'teacher001'
+                moodle_id: '22104098',
+                password: await bcrypt.hash('nitesh', 10),
+                name: 'Nitesh Soni',
+                role: Role.ADMIN,
             },
+        });
+        console.log('✅ Created/Updated user nitesh:', nitesh);
+
+        const priya = await prisma.user.upsert({
+            where: { moodle_id: '22104208' },
             update: {
-                password: await bcrypt.hash('teacher123', 10),
-                name: 'Dr. Sarah Wilson',
+                password: await bcrypt.hash('prince', 10),
+                name: 'Priya Singh',
             },
             create: {
-                moodle_id: 'teacher001',
-                password: await bcrypt.hash('teacher123', 10),
-                name: 'Dr. Sarah Wilson',
-            }
-        })
+                moodle_id: '22104208',
+                password: await bcrypt.hash('prince', 10),
+                name: 'Priya Singh',
+                role: Role.ADMIN,
+            },
+        });
+        console.log('✅ Created/Updated user priya:', priya);
 
-        console.log('✅ Created/Updated teacher:', teacher)
-        console.log('🎉 Database seeding completed successfully!')
+        const prince = await prisma.user.upsert({
+            where: { moodle_id: '22104065' },
+            update: {
+                password: await bcrypt.hash('priya', 10),
+                name: 'Prince Yadav',
+            },
+            create: {
+                moodle_id: '22104065',
+                password: await bcrypt.hash('priya', 10),
+                name: 'Prince Yadav',
+                role: Role.FACULTY,
+            },
+        });
+        console.log('✅ Created/Updated user prince:', prince);
 
+        console.log('🎉 Database seeding completed successfully!');
     } catch (error) {
-        console.error('❌ Error seeding database:', error)
-        throw error
+        console.error('❌ Error seeding database:', error);
+        throw error;
     }
 }
 
 main()
     .catch((e) => {
-        console.error('❌ Seed script failed:', e)
-        process.exit(1)
+        console.error('❌ Seed script failed:', e);
+        process.exit(1);
     })
     .finally(async () => {
-        await prisma.$disconnect()
-        console.log('🔌 Disconnected from database')
-    })
+        await prisma.$disconnect();
+        console.log('🔌 Disconnected from database');
+    });
