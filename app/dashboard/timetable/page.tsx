@@ -286,24 +286,7 @@ const [collegeLogoPreview, setCollegeLogoPreview] = useState<string>("");
               }),
             ],
           }),
-          new Paragraph({
-            text: "A. P. SHAH INSTITUTE OF TECHNOLOGY",
-            alignment: AlignmentType.CENTER,
-            spacing: { after: 100 },
-            style: HeadingLevel.HEADING_1,
-          }),
-          
-          new Paragraph({
-            text: `Department of ${department}`,
-            alignment: AlignmentType.CENTER,
-            spacing: { after: 100 },
-          }),
-          
-          new Paragraph({
-            text: "(NBA Accredited)",
-            alignment: AlignmentType.CENTER,
-            spacing: { after: 200 },
-          }),
+
           
           new Paragraph({
             text: `UNIT TEST-${unitTest} TIME TABLE (Academic Year ${academicYear})`,
