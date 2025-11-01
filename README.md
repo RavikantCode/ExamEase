@@ -60,15 +60,15 @@ cd ExamEase
 ```
 ### 2.Install the Dependencies
 ```bash
-npm install
+pnpm install
 ```
 ### 3.Generate Auto-generated clients
 ```bash
-npx prisma generate
+pnpx prisma generate
 ```
 ### 4.Run the Server
 ```bash
-npm run dev
+pnpm run dev
 ```
 ## 🗂 Project Structure
 
