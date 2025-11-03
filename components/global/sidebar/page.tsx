@@ -1,11 +1,12 @@
 'use client';
 import { usePathname, useRouter } from "next/navigation";
-import { useState } from "react";
+import { useState ,useMemo } from "react";
 import { LogOut, Menu, Clock } from "lucide-react";
 import SidebarItem from "./Sidebar-item";
 import { MENU_ITEMS } from "@/constants/menu-items";
 import Image from "next/image";
 import { Separator } from "@/components/ui/separator";
+import { signOut } from "next-auth/react";
 
 type Props={
   session:any
@@ -16,9 +17,17 @@ const Sidebar = ({session}:Props) => {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const handleLogout = () => {
-    console.log("Logging out...");
-    router.push("/auth/signin");
+  const filteredMenuItems = useMemo(() => {
+    const userRole = session?.user?.role || 'FACULTY';
+    console.log('User role:', userRole);
+    return MENU_ITEMS.filter(item => item.roles.includes(userRole));
+  }, [session]);
+
+  const handleLogout = async() => {
+        await signOut({
+      callbackUrl:'/auth/signin',
+      redirect:true
+    })
   };
 
   const SidebarSection = (
@@ -43,13 +52,11 @@ const Sidebar = ({session}:Props) => {
 
 </div>
 
-
-      {/* Menu Section */}
       <div className="w-full">
         <span className="w-full text-[#9D9D9D] font-bold text-sm">Menu</span>
         <nav className="w-full mt-3">
           <ul>
-            {MENU_ITEMS.map((item) => (
+            {filteredMenuItems.map((item) => (
               <SidebarItem
                 key={item.title}
                 href={item.href}
@@ -65,7 +72,6 @@ const Sidebar = ({session}:Props) => {
 
       <Separator className="bg-neutral-700"></Separator>
 
-      {/* Logout Section */}
       <div className="w-full mt-auto">
         <button
           onClick={handleLogout}

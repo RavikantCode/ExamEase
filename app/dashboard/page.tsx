@@ -8,6 +8,8 @@ import Faculty from "@/components/global/Faculty/page";
 function DashboardPage() {
   const { data: session, status } = useSession();
 
+  
+
   if (status === "loading") {
     return (
       <div className="min-h-screen bg-black flex items-center justify-center">
@@ -16,7 +18,7 @@ function DashboardPage() {
     );
   }
 
-
+  const isAdmin = session?.user?.role === 'ADMIN';
 
   return (
 
@@ -30,8 +32,11 @@ function DashboardPage() {
     <Tabs defaultValue='folder' className='mt-6'>
         <div className='flex w-full justify-between items-center'>
           <TabsList className='bg-transparent gap-2 pl-0'>
-              <TabsTrigger className='p-[13px] px-6 rounded-full data-[state=active]:bg-[#252525] text-white' value='folder'>View Folders</TabsTrigger>
+              <TabsTrigger className='p-[13px] px-6 rounded-full data-[state=active]:bg-[#252525] text-white' value='folder'>Folders</TabsTrigger>
+              {isAdmin && (
+
               <TabsTrigger className='p-[13px] px-6 rounded-full data-[state=active]:bg-[#aba9a9] text-white' value='faculty'>View Faculty</TabsTrigger>
+              )}
           </TabsList>
 
           <div className='flex gap-x-3'>
@@ -46,12 +51,15 @@ function DashboardPage() {
               <Folder></Folder>
             </TabsContent>
           </section>
+            
+            {isAdmin && (
 
           <section>
             <TabsContent value="faculty">
               <Faculty></Faculty>
             </TabsContent>
           </section>
+            )}
         </div>
       </Tabs>
     </div>

@@ -12,6 +12,7 @@ async function main() {
             update: {
                 password: await bcrypt.hash('ravikant', 10),
                 name: 'Ravikant Yadav',
+                role: Role.FACULTY,
             },
             create: {
                 moodle_id: '22104194',
@@ -27,6 +28,7 @@ async function main() {
             update: {
                 password: await bcrypt.hash('nitesh', 10),
                 name: 'Nitesh Soni',
+                role: Role.ADMIN,
             },
             create: {
                 moodle_id: '22104098',
@@ -42,6 +44,8 @@ async function main() {
             update: {
                 password: await bcrypt.hash('prince', 10),
                 name: 'Priya Singh',
+                role: Role.ADMIN,
+
             },
             create: {
                 moodle_id: '22104208',
@@ -57,6 +61,8 @@ async function main() {
             update: {
                 password: await bcrypt.hash('priya', 10),
                 name: 'Prince Yadav',
+                role: Role.FACULTY,
+
             },
             create: {
                 moodle_id: '22104065',

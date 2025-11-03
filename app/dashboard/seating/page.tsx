@@ -559,7 +559,7 @@
 
 'use client'
 import React, { useState } from 'react';
-import { Download, Upload, Play, AlertCircle, CheckCircle, Settings, Info, Building, ClockArrowUp } from 'lucide-react';
+import { Download, Upload, Play, AlertCircle, CheckCircle, Settings, Info, Building, ClockArrowUp, FileText } from 'lucide-react';
 import { Document, Packer, Paragraph, TextRun, Table, TableRow, TableCell, WidthType } from "docx";
 
 interface BranchGroup {
@@ -1297,146 +1297,373 @@ const exportToDocx = () => {
 //       `}</style>
 //     </div>
 //   );
+
+// ================================sahi hain yeh revert kr dena ====================================
+// return (
+//   <div className="min-h-screen bg-gradient-to-br from-black via-black-900 to-black text-white p-6">
+//     <div className="max-w-7xl mx-auto">
+//       <div className="text-center mb-10">
+//         <h1 className="text-4xl font-extrabold tracking-wide mb-2">
+//           Smart <span className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent">Seating</span> Arrangement <span className="text-white">System</span>
+//         </h1>
+//         <div className="flex items-center justify-center mt-4 space-x-6 text-sm text-gray-500">
+//           <span className="px-3 py-1 rounded-full bg-gray-800/60 border border-gray-700">Efficient & Organized</span>
+//           <span className="px-3 py-1 rounded-full bg-gray-800/60 border border-gray-700">Quick Setup</span>
+//           <span className="px-3 py-1 rounded-full bg-gray-800/60 border border-gray-700">Analytics Included</span>
+//         </div>
+//       </div>
+
+//       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 print:hidden">
+//         {/* Student CSV Upload */}
+//         <div className="bg-gray-800 rounded-lg p-6 shadow-xl flex flex-col items-center justify-center gap-4">
+//           <ClockArrowUp size={48} className="text-purple-500" />
+//           <h2 className="text-xl font-bold">Upload Student CSV</h2>
+//           <input
+//             type="file"
+//             accept=".csv"
+//             onChange={handleStudentCsvUpload}
+//             className="cursor-pointer text-gray-300"
+//           />
+//           <p className="text-sm text-gray-400">Format: Branch, Total Students, Exam Group</p>
+//         </div>
+
+//         {/* Room CSV Upload */}
+//         <div className="bg-gray-800 rounded-lg p-6 shadow-xl flex flex-col items-center justify-center gap-4">
+//           <Building size={48} className="text-indigo-500" />
+//           <h2 className="text-xl font-bold">Upload Room CSV</h2>
+//           <input
+//             type="file"
+//             accept=".csv"
+//             onChange={handleRoomCsvUpload}
+//             className="cursor-pointer text-gray-300"
+//           />
+//           <p className="text-sm text-gray-400">Format: Room Number, Benches</p>
+//         </div>
+//       </div>
+
+//       <div className="mb-6">
+//         <input
+//           type="text"
+//           value={date}
+//           onChange={(e) => setDate(e.target.value)}
+//           className="w-full max-w-xs bg-gray-700 text-white px-3 py-2 rounded mb-4"
+//           placeholder="Date"
+//         />
+//       </div>
+
+//       <div className="flex justify-center gap-4 mb-6 print:hidden">
+//         <button
+//           onClick={generateSeatingArrangement}
+//           disabled={loading}
+//           className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg text-lg font-semibold disabled:opacity-50"
+//         >
+//           <Play size={24} />
+//           {loading ? 'Processing...' : 'Generate Seating Plan'}
+//         </button>
+//         {output && (
+//           <>
+//             <button
+//               onClick={exportOutput}
+//               className="flex items-center gap-2 bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg"
+//             >
+//               <Download size={24} />
+//               Export JSON
+//             </button>
+//             {/* <button
+//               onClick={printPDF}
+//               className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg"
+//             >
+//               <Download size={24} />
+//               Print PDF
+//             </button> */}
+//             <button
+//   onClick={exportToDocx}
+//   className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg"
+// >
+//   <Download size={24} />
+//   Export DOCX
+// </button>
+//           </>
+//         )}
+//       </div>
+
+//       {error && (
+//         <div className="bg-red-900 bg-opacity-50 border border-red-500 rounded-lg p-4 mb-6 flex items-center gap-2 print:hidden">
+//           <AlertCircle size={24} />
+//           <span>{error}</span>
+//         </div>
+//       )}
+
+//       {output && !error && (
+//         <div className="bg-green-900 bg-opacity-50 border border-green-500 rounded-lg p-4 mb-6 flex items-center gap-2 print:hidden">
+//           <CheckCircle size={24} />
+//           <span>Done! Each branch takes room_capacity/2 students, paired with different exam groups.</span>
+//         </div>
+//       )}
+
+//       {/* Seating Plan Output */}
+//       {output && (
+//         <div className="bg-gray-900 rounded-2xl p-8 shadow-2xl print:bg-white print:text-black">
+//           <div className="text-center mb-8">
+//             <h2 className="text-3xl font-extrabold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500">
+//               SEATING PLAN FOR UNIVERSITY TEST-I, AUGUST 2025
+//             </h2>
+//             <p className="text-lg font-semibold text-gray-300">{output.date}</p>
+//             <p className="text-sm text-gray-400 print:text-gray-700">
+//               TIME: {output.time.join(' & ')}
+//             </p>
+//           </div>
+//           <div className="overflow-x-auto">
+//             <table className="w-full border-collapse border border-gray-700 rounded-lg overflow-hidden print:border-black">
+//               <thead>
+//                 <tr className="bg-gradient-to-r from-gray-800 to-gray-700 text-gray-300 print:bg-gray-200">
+//                   <th className="border border-gray-700 print:border-black p-4 text-left text-sm font-semibold">No.</th>
+//                   <th className="border border-gray-700 print:border-black p-4 text-left text-sm font-semibold">Block</th>
+//                   <th className="border border-gray-700 print:border-black p-4 text-left text-sm font-semibold">Branch</th>
+//                   <th className="border border-gray-700 print:border-black p-4 text-center text-sm font-semibold">Total</th>
+//                 </tr>
+//               </thead>
+//               <tbody>
+//                 {output.seatingPlan.map((block) => (
+//                   <tr key={block.no} className="hover:bg-gray-800 hover:bg-opacity-50 transition-colors duration-200 print:hover:bg-transparent">
+//                     <td className="border border-gray-700 print:border-black p-4 text-gray-300 text-sm">{block.no}</td>
+//                     <td className="border border-gray-700 print:border-black p-4 text-gray-300 text-sm font-bold">{block.block}</td>
+//                     <td className="border border-gray-700 print:border-black p-4 text-gray-300 text-sm">
+//                       {block.branches.map((branch: string, idx: number) => <div key={idx}>{branch}</div>)}
+//                     </td>
+//                     <td className="border border-gray-700 print:border-black p-4 text-gray-300 text-sm font-bold text-center">{block.total}</td>
+//                   </tr>
+//                 ))}
+//               </tbody>
+//             </table>
+//           </div>
+//         </div>
+//       )}
+//     </div>
+//   </div>
+// );
+
+// Keep all your existing state, handlers, and logic above this return statement
+
 return (
-  <div className="min-h-screen bg-gradient-to-br from-black via-black-900 to-black text-white p-6">
-    <div className="max-w-7xl mx-auto">
-      <div className="text-center mb-10">
-        <h1 className="text-4xl font-extrabold tracking-wide mb-2">
-          Smart <span className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent">Seating</span> Arrangement <span className="text-white">System</span>
+  <div className="min-h-screen bg-[#0B0B0B] text-white">
+    {/* Header */}
+    <div className="bg-[#000000] border-b border-neutral-800 p-6">
+      <div className="max-w-[1800px] mx-auto">
+        <h1 className="text-3xl font-bold">
+          <span className="text-2xl md:text-2xl font-semibold text-white">
+            E
+            <span className="text-2xl md:text-4xl relative top-1 bg-gradient-to-r from-[#8B5CF6] to-[#0B0B0B] bg-clip-text text-transparent">
+              X
+            </span>
+            amEase
+          </span>
+          <span className="ml-3 text-lg font-normal text-neutral-400">Seating Arrangement</span>
         </h1>
-        <div className="flex items-center justify-center mt-4 space-x-6 text-sm text-gray-500">
-          <span className="px-3 py-1 rounded-full bg-gray-800/60 border border-gray-700">Efficient & Organized</span>
-          <span className="px-3 py-1 rounded-full bg-gray-800/60 border border-gray-700">Quick Setup</span>
-          <span className="px-3 py-1 rounded-full bg-gray-800/60 border border-gray-700">Analytics Included</span>
+      </div>
+    </div>
+
+    <div className="max-w-[1800px] mx-auto p-6">
+      {/* Hero Section */}
+      <div className="text-center mb-10">
+        <h2 className="text-3xl font-bold mb-3">
+          Smart <span className="bg-gradient-to-r from-[#8B5CF6] to-[#6D28D9] bg-clip-text text-transparent">Seating</span> Arrangement System
+        </h2>
+        <div className="flex items-center justify-center gap-4 mt-4 flex-wrap">
+          <span className="px-4 py-1.5 rounded-full bg-[#111111] border border-neutral-800 text-sm text-neutral-400">
+            Efficient & Organized
+          </span>
+          <span className="px-4 py-1.5 rounded-full bg-[#111111] border border-neutral-800 text-sm text-neutral-400">
+            Quick Setup
+          </span>
+          <span className="px-4 py-1.5 rounded-full bg-[#111111] border border-neutral-800 text-sm text-neutral-400">
+            Analytics Included
+          </span>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 print:hidden">
-        {/* Student CSV Upload */}
-        <div className="bg-gray-800 rounded-lg p-6 shadow-xl flex flex-col items-center justify-center gap-4">
-          <ClockArrowUp size={48} className="text-purple-500" />
-          <h2 className="text-xl font-bold">Upload Student CSV</h2>
-          <input
-            type="file"
-            accept=".csv"
-            onChange={handleStudentCsvUpload}
-            className="cursor-pointer text-gray-300"
-          />
-          <p className="text-sm text-gray-400">Format: Branch, Total Students, Exam Group</p>
-        </div>
-
-        {/* Room CSV Upload */}
-        <div className="bg-gray-800 rounded-lg p-6 shadow-xl flex flex-col items-center justify-center gap-4">
-          <Building size={48} className="text-indigo-500" />
-          <h2 className="text-xl font-bold">Upload Room CSV</h2>
-          <input
-            type="file"
-            accept=".csv"
-            onChange={handleRoomCsvUpload}
-            className="cursor-pointer text-gray-300"
-          />
-          <p className="text-sm text-gray-400">Format: Room Number, Benches</p>
-        </div>
-      </div>
-
-      <div className="mb-6">
-        <input
-          type="text"
-          value={date}
-          onChange={(e) => setDate(e.target.value)}
-          className="w-full max-w-xs bg-gray-700 text-white px-3 py-2 rounded mb-4"
-          placeholder="Date"
-        />
-      </div>
-
-      <div className="flex justify-center gap-4 mb-6 print:hidden">
-        <button
-          onClick={generateSeatingArrangement}
-          disabled={loading}
-          className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 px-6 py-3 rounded-lg text-lg font-semibold disabled:opacity-50"
-        >
-          <Play size={24} />
-          {loading ? 'Processing...' : 'Generate Seating Plan'}
-        </button>
-        {output && (
-          <>
-            <button
-              onClick={exportOutput}
-              className="flex items-center gap-2 bg-green-600 hover:bg-green-700 px-6 py-3 rounded-lg"
-            >
-              <Download size={24} />
-              Export JSON
-            </button>
-            {/* <button
-              onClick={printPDF}
-              className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg"
-            >
-              <Download size={24} />
-              Print PDF
-            </button> */}
-            <button
-  onClick={exportToDocx}
-  className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 px-6 py-3 rounded-lg"
->
-  <Download size={24} />
-  Export DOCX
-</button>
-          </>
-        )}
-      </div>
-
-      {error && (
-        <div className="bg-red-900 bg-opacity-50 border border-red-500 rounded-lg p-4 mb-6 flex items-center gap-2 print:hidden">
-          <AlertCircle size={24} />
-          <span>{error}</span>
-        </div>
-      )}
-
-      {output && !error && (
-        <div className="bg-green-900 bg-opacity-50 border border-green-500 rounded-lg p-4 mb-6 flex items-center gap-2 print:hidden">
-          <CheckCircle size={24} />
-          <span>Done! Each branch takes room_capacity/2 students, paired with different exam groups.</span>
-        </div>
-      )}
-
-      {/* Seating Plan Output */}
-      {output && (
-        <div className="bg-gray-900 rounded-2xl p-8 shadow-2xl print:bg-white print:text-black">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-extrabold mb-2 text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-indigo-500">
-              SEATING PLAN FOR UNIVERSITY TEST-I, AUGUST 2025
-            </h2>
-            <p className="text-lg font-semibold text-gray-300">{output.date}</p>
-            <p className="text-sm text-gray-400 print:text-gray-700">
-              TIME: {output.time.join(' & ')}
-            </p>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Left Column - Input Section */}
+        <div className="space-y-4 print:hidden">
+          {/* Student CSV Upload */}
+          <div className="bg-[#111111] border border-neutral-800 rounded-xl p-6">
+            <div className="flex flex-col items-center justify-center gap-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#8B5CF6]/20 to-[#6D28D9]/20 rounded-xl flex items-center justify-center border border-[#8B5CF6]/30">
+                <ClockArrowUp className="text-[#8B5CF6]" size={32} />
+              </div>
+              <div className="text-center">
+                <h3 className="text-lg font-semibold mb-1">Upload Student CSV</h3>
+                <p className="text-xs text-neutral-400">Format: Branch, Total Students, Exam Group</p>
+              </div>
+              <input
+                type="file"
+                accept=".csv"
+                onChange={handleStudentCsvUpload}
+                className="w-full bg-[#1D1D1D] border border-neutral-700 rounded-lg p-2.5 text-sm text-white file:mr-4 file:py-1.5 file:px-3 file:rounded file:border-0 file:text-xs file:bg-[#8B5CF6] file:text-white hover:file:bg-[#7C3AED] cursor-pointer"
+              />
+            </div>
           </div>
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse border border-gray-700 rounded-lg overflow-hidden print:border-black">
-              <thead>
-                <tr className="bg-gradient-to-r from-gray-800 to-gray-700 text-gray-300 print:bg-gray-200">
-                  <th className="border border-gray-700 print:border-black p-4 text-left text-sm font-semibold">No.</th>
-                  <th className="border border-gray-700 print:border-black p-4 text-left text-sm font-semibold">Block</th>
-                  <th className="border border-gray-700 print:border-black p-4 text-left text-sm font-semibold">Branch</th>
-                  <th className="border border-gray-700 print:border-black p-4 text-center text-sm font-semibold">Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                {output.seatingPlan.map((block) => (
-                  <tr key={block.no} className="hover:bg-gray-800 hover:bg-opacity-50 transition-colors duration-200 print:hover:bg-transparent">
-                    <td className="border border-gray-700 print:border-black p-4 text-gray-300 text-sm">{block.no}</td>
-                    <td className="border border-gray-700 print:border-black p-4 text-gray-300 text-sm font-bold">{block.block}</td>
-                    <td className="border border-gray-700 print:border-black p-4 text-gray-300 text-sm">
-                      {block.branches.map((branch: string, idx: number) => <div key={idx}>{branch}</div>)}
-                    </td>
-                    <td className="border border-gray-700 print:border-black p-4 text-gray-300 text-sm font-bold text-center">{block.total}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+
+          {/* Room CSV Upload */}
+          <div className="bg-[#111111] border border-neutral-800 rounded-xl p-6">
+            <div className="flex flex-col items-center justify-center gap-4">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500/20 to-blue-600/20 rounded-xl flex items-center justify-center border border-blue-500/30">
+                <Building className="text-blue-400" size={32} />
+              </div>
+              <div className="text-center">
+                <h3 className="text-lg font-semibold mb-1">Upload Room CSV</h3>
+                <p className="text-xs text-neutral-400">Format: Room Number, Benches</p>
+              </div>
+              <input
+                type="file"
+                accept=".csv"
+                onChange={handleRoomCsvUpload}
+                className="w-full bg-[#1D1D1D] border border-neutral-700 rounded-lg p-2.5 text-sm text-white file:mr-4 file:py-1.5 file:px-3 file:rounded file:border-0 file:text-xs file:bg-blue-500 file:text-white hover:file:bg-blue-600 cursor-pointer"
+              />
+            </div>
           </div>
+
+          {/* Date Input */}
+          <div className="bg-[#111111] border border-neutral-800 rounded-xl p-5">
+            <label className="text-xs text-neutral-400 mb-2 block">Exam Date</label>
+            <input
+              type="text"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              className="w-full bg-[#1D1D1D] border border-neutral-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-neutral-600 focus:outline-none focus:border-[#8B5CF6]"
+              placeholder="Enter date"
+            />
+          </div>
+
+          {/* Generate Button */}
+          <button
+            onClick={generateSeatingArrangement}
+            disabled={loading}
+            className="w-full bg-gradient-to-r from-[#10B981] to-[#059669] text-white px-6 py-4 rounded-xl hover:from-[#059669] hover:to-[#047857] text-base font-semibold flex items-center justify-center gap-3 shadow-lg shadow-green-500/20 disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+          >
+            <Play size={20} />
+            {loading ? 'Processing...' : 'Generate Seating Plan'}
+          </button>
+
+          {/* Export Buttons */}
+          {output && (
+            <div className="grid grid-cols-2 gap-3">
+              <button
+                onClick={exportOutput}
+                className="bg-[#1D1D1D] border border-neutral-700 text-white px-4 py-3 rounded-lg hover:bg-[#2D2D2D] text-sm font-medium flex items-center justify-center gap-2 transition-colors"
+              >
+                <Download size={16} />
+                Export JSON
+              </button>
+              <button
+                onClick={exportToDocx}
+                className="bg-[#1D1D1D] border border-neutral-700 text-white px-4 py-3 rounded-lg hover:bg-[#2D2D2D] text-sm font-medium flex items-center justify-center gap-2 transition-colors"
+              >
+                <Download size={16} />
+                Export DOCX
+              </button>
+            </div>
+          )}
+
+          {/* Error Message */}
+          {error && (
+            <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-4 flex items-center gap-3">
+              <AlertCircle className="text-red-400 flex-shrink-0" size={20} />
+              <span className="text-sm text-red-400">{error}</span>
+            </div>
+          )}
+
+          {/* Success Message */}
+          {output && !error && (
+            <div className="bg-[#10B981]/10 border border-[#10B981]/30 rounded-lg p-4 flex items-center gap-3">
+              <CheckCircle className="text-[#10B981] flex-shrink-0" size={20} />
+              <span className="text-sm text-[#10B981]">
+                Done! Each branch takes room_capacity/2 students, paired with different exam groups.
+              </span>
+            </div>
+          )}
         </div>
-      )}
+
+        {/* Right Column - Output Section */}
+        <div className="bg-[#111111] border border-neutral-800 rounded-xl p-5 h-fit sticky top-6">
+          <div className="flex items-center gap-2 mb-4">
+            <FileText className="text-[#8B5CF6]" size={20} />
+            <h2 className="text-lg font-semibold">Seating Plan Output</h2>
+          </div>
+
+          {!output ? (
+            <div className="text-center py-16 text-neutral-500">
+              <FileText size={48} className="mx-auto mb-3 opacity-20" />
+              <p className="text-sm">Click "Generate Seating Plan" to create your arrangement</p>
+            </div>
+          ) : (
+            <div className="space-y-4">
+              {/* Header Card */}
+              <div className="bg-gradient-to-r from-[#1D1D1D] to-[#2D2D2D] border border-neutral-800 rounded-lg p-4">
+                <div className="text-center space-y-2">
+                  <h3 className="text-xl font-bold bg-gradient-to-r from-[#8B5CF6] to-[#6D28D9] bg-clip-text text-transparent">
+                    SEATING PLAN FOR UNIVERSITY TEST-I, AUGUST 2025
+                  </h3>
+                  <p className="text-base font-semibold">{output.date}</p>
+                  <p className="text-xs text-neutral-400">
+                    TIME: {output.time.join(' & ')}
+                  </p>
+                </div>
+              </div>
+
+              {/* Seating Table */}
+              <div className="bg-[#0a0a0a] border border-neutral-800 rounded-lg overflow-hidden">
+                <div className="overflow-x-auto max-h-[600px] overflow-y-auto">
+                  <table className="w-full">
+                    <thead className="sticky top-0 bg-[#1D1D1D] border-b border-neutral-800">
+                      <tr>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-neutral-400 uppercase tracking-wider">
+                          No.
+                        </th>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-neutral-400 uppercase tracking-wider">
+                          Block
+                        </th>
+                        <th className="px-4 py-3 text-left text-xs font-semibold text-neutral-400 uppercase tracking-wider">
+                          Branch
+                        </th>
+                        <th className="px-4 py-3 text-center text-xs font-semibold text-neutral-400 uppercase tracking-wider">
+                          Total
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-neutral-800">
+                      {output.seatingPlan.map((block) => (
+                        <tr key={block.no} className="hover:bg-[#1D1D1D]/50 transition-colors">
+                          <td className="px-4 py-3 text-sm">
+                            <div className="w-8 h-8 bg-gradient-to-br from-[#8B5CF6] to-[#6D28D9] rounded-lg flex items-center justify-center font-bold text-xs">
+                              {block.no}
+                            </div>
+                          </td>
+                          <td className="px-4 py-3 text-sm font-semibold">{block.block}</td>
+                          <td className="px-4 py-3 text-sm">
+                            <div className="space-y-1">
+                              {block.branches.map((branch: string, idx: number) => (
+                                <div key={idx} className="text-neutral-300">
+                                  {branch}
+                                </div>
+                              ))}
+                            </div>
+                          </td>
+                          <td className="px-4 py-3 text-center">
+                            <span className="inline-flex items-center px-3 py-1 bg-[#10B981]/20 text-[#10B981] rounded-full text-xs font-semibold border border-[#10B981]/30">
+                              {block.total}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   </div>
 );
