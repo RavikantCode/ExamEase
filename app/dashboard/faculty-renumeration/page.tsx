@@ -2,6 +2,9 @@
 
 import React, { useState } from 'react';
 import { Search, Send, Edit, FileText, AlertCircle, CheckCircle, Clock, Users, TrendingUp } from 'lucide-react';
+import { WalletCards } from "lucide-react"
+import { IndianRupee } from "lucide-react";
+
 
 const RemunerationDashboard = () => {
   const [activeTab, setActiveTab] = useState('overview');
@@ -86,11 +89,15 @@ const RemunerationDashboard = () => {
             <div className="text-orange-400 text-sm">({stats.pendingPercentage}%)</div>
           </div>
 
-          <div className="bg-[#111111] border border-neutral-800 rounded-xl p-6 flex items-center justify-center">
-            <button className="px-6 py-3 bg-gradient-to-r from-[#8B5CF6] to-[#6D28D9] hover:from-[#7C3AED] hover:to-[#5B21B6] rounded-lg font-medium transition-all w-full flex items-center justify-center gap-2">
-              <Send size={16} />
-              Send Reminders
-            </button>
+          <div className="bg-[#111111] border border-neutral-800 rounded-xl p-6">
+          <div className="flex items-center justify-between mb-3">
+              <div className="text-orange-400 text-sm font-medium">Verified Amounts</div>
+              <WalletCards className="text-orange-400" size={20}/>
+            </div>
+            
+            <span className="text-3xl font-bold text-white flex">
+            <IndianRupee className='w-6 h-6 mt-2 text-bold'/>12,500</span>
+            
           </div>
         </div>
 
@@ -100,18 +107,8 @@ const RemunerationDashboard = () => {
             <TrendingUp className="text-[#8B5CF6]" size={20} />
             General Details
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div>
-              <label className="text-xs text-neutral-400 mb-1 block">Pay Period</label>
-              <select 
-                value={selectedPayPeriod}
-                onChange={(e) => setSelectedPayPeriod(e.target.value)}
-                className="w-full bg-[#1D1D1D] border border-neutral-700 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-[#8B5CF6]"
-              >
-                <option value="October 1, 2025 - October 31, 2025">October 1, 2025 - October 31, 2025</option>
-                <option value="November 1, 2025 - November 30, 2025">November 1, 2025 - November 30, 2025</option>
-              </select>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-1 gap-4">
+          
             <div>
               <label className="text-xs text-neutral-400 mb-1 block">Search Faculty</label>
               <div className="relative">
@@ -211,7 +208,7 @@ const RemunerationDashboard = () => {
                 <div className="space-y-3">
                   <button className="w-full px-4 py-3 bg-gradient-to-r from-[#8B5CF6] to-[#6D28D9] hover:from-[#7C3AED] hover:to-[#5B21B6] rounded-lg text-sm font-medium transition-all flex items-center justify-center gap-2">
                     <Send className="w-4 h-4" />
-                    Send Bulk Reminders
+                    Send Reminders To Everyone
                   </button>
                   <button className="w-full px-4 py-3 bg-[#1D1D1D] border border-neutral-700 hover:bg-[#2D2D2D] rounded-lg text-sm font-medium transition-colors flex items-center justify-center gap-2">
                     <FileText className="w-4 h-4" />
