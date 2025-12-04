@@ -1594,7 +1594,7 @@ return (
           {!output ? (
             <div className="text-center py-16 text-neutral-500">
               <FileText size={48} className="mx-auto mb-3 opacity-20" />
-              <p className="text-sm">Click "Generate Seating Plan" to create your arrangement</p>
+              <p className="text-sm">Click Generate Seating Plan to create your arrangement</p>
             </div>
           ) : (
             <div className="space-y-4">

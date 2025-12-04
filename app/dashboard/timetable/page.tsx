@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Calendar, Clock, Upload, FileText, Trash2, Download, Plus, User, Building2, GraduationCap, Zap } from "lucide-react";
 import { Document, Packer, Paragraph, TextRun, Table, TableCell, TableRow, WidthType, AlignmentType, BorderStyle, HeadingLevel, ImageRun } from "docx";
+import Image from "next/image";
 
 interface VTEntry {
   date: string;
@@ -664,7 +665,7 @@ const [collegeLogoPreview, setCollegeLogoPreview] = useState<string>("");
                 />
                 {logoPreview && (
                   <div className="flex justify-center">
-                    <img src={logoPreview} alt="Logo Preview" className="h-24 w-24 object-contain rounded-lg border border-neutral-700" />
+                    <Image src={logoPreview} alt="Logo Preview" className="h-24 w-24 object-contain rounded-lg border border-neutral-700" />
                   </div>
                 )}
               </div>
