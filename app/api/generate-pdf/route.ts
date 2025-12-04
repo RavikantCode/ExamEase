@@ -51,7 +51,7 @@ export async function POST(req: Request) {
     const schedule = generateSchedule(subjects, startDate);
     const pdfBuffer = await createPDFBuffer(title, schedule, morningTime, eveningTime);
 
-    return new Response(pdfBuffer, {
+    return new Response(Buffer.from(pdfBuffer), {
       headers: {
         "Content-Type": "application/pdf",
         "Content-Disposition": `inline; filename=${title}_Timetable.pdf`,
