@@ -12,13 +12,13 @@ async function main() {
             update: {
                 password: await bcrypt.hash('ravikant', 10),
                 name: 'Ravikant Yadav',
-                role: Role.FACULTY,
+                role: Role.ADMIN,
             },
             create: {
                 moodle_id: '22104194',
                 password: await bcrypt.hash('ravikant', 10),
                 name: 'Ravikant Yadav',
-                role: Role.FACULTY,
+                role: Role.ADMIN,
             },
         });
         console.log('✅ Created/Updated user ravi:', ravi);
@@ -44,14 +44,14 @@ async function main() {
             update: {
                 password: await bcrypt.hash('prince', 10),
                 name: 'Priya Singh',
-                role: Role.ADMIN,
+                role: Role.FACULTY,
 
             },
             create: {
                 moodle_id: '22104208',
                 password: await bcrypt.hash('prince', 10),
                 name: 'Priya Singh',
-                role: Role.ADMIN,
+                role: Role.FACULTY,
             },
         });
         console.log('✅ Created/Updated user priya:', priya);
