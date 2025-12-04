@@ -1,13 +1,51 @@
-import {
-    Course,
-    Teacher,
-    Room,
-    TimeSlot,
-    Config,
-    ExamAssignment,
-    GeneratedTimetable,
-  } from "./types";
-  
+export interface Course {
+  id: string;
+  name: string;
+  department?: string;
+  semester?: number;
+}
+
+export interface Teacher {
+  id: string;
+  name: string;
+  maxHoursPerDay: number;
+}
+
+export interface Room {
+  id: string;
+  name: string;
+  capacity?: number;
+}
+
+export interface TimeSlot {
+  startTime: string; // "HH:MM"
+  endTime: string;   // "HH:MM"
+}
+
+export interface Config {
+  startTime: string;           // "HH:MM"
+  shiftsPerDay: number;
+  examDurationHours: number;
+  breakTimeMinutes: number;
+}
+
+export interface ExamAssignment {
+  course: Course;
+  teacher: Teacher;
+  room: Room;
+}
+
+export interface GeneratedTimetable {
+  schedule: Record<string, Record<string, ExamAssignment[]>>;
+  unscheduled: Course[];
+  timeSlots: TimeSlot[];
+  stats: {
+    totalCourses: number;
+    scheduledCourses: number;
+    unscheduledCourses: number;
+  };
+}
+
   export const calculateTimeSlots = (config: Config): TimeSlot[] => {
     const slots: TimeSlot[] = [];
     const [startHour, startMinute] = config.startTime.split(":").map(Number);
