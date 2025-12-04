@@ -238,6 +238,7 @@ const [collegeLogoPreview, setCollegeLogoPreview] = useState<string>("");
                               new ImageRun({
                                 data: departmentLogoBuffer,
                                 transformation: { width: 80, height: 80 },
+                                type:"png"
                               }),
                             ],
                           }),
@@ -276,6 +277,7 @@ const [collegeLogoPreview, setCollegeLogoPreview] = useState<string>("");
                               new ImageRun({
                                 data: collegeLogoBuffer,
                                 transformation: { width: 80, height: 80 },
+                                type:"png"
                               }),
                             ],
                           }),
