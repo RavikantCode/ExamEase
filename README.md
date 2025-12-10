@@ -70,6 +70,12 @@ pnpx prisma generate
 ```bash
 pnpm run dev
 ```
+---
+### OR 
+Eat 5 Star or do Nothing 
+```
+./setup.sh
+```
 ## 🗂 Project Structure
 
 - Pages & Components: app/ src
