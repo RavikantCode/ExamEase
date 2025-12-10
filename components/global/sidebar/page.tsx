@@ -108,14 +108,26 @@ const Sidebar = ({session}:Props) => {
       {/* Mobile Menu */}
       <div className="md:hidden">
         {/* Mobile Header */}
-        <div className="bg-[#111111] p-4 flex items-center justify-between border-b border-neutral-800">
-          <div className="flex items-center gap-3">
+       <div className="bg-[#000000] p-3 sm:p-4 flex items-center justify-between border-b border-neutral-800 fixed top-0 left-0 right-0 z-40">
+          <div className="flex items-center gap-2">
+            <div className="relative overflow-hidden h-12 w-12 rounded-lg flex items-center justify-center">
+              <Image
+                src="/logo-new.png"
+                alt="opal-image"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <span className="text-base sm:text-lg font-semibold text-white">
+              E<span className="text-base sm:text-lg bg-linear-to-r from-[#8B5CF6] to-[#0B0B0B] bg-clip-text text-transparent">X</span>amEase
+            </span>
           </div>
+
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="text-white hover:bg-neutral-800 p-2 rounded-lg transition-colors"
+           className="text-white hover:bg-neutral-800 p-2 rounded-lg transition-colors active:scale-95"
           >
-            <Menu size={20} />
+            <Menu size={24} />
           </button>
         </div>
 
@@ -123,10 +135,10 @@ const Sidebar = ({session}:Props) => {
         {isMobileMenuOpen && (
           <div className="fixed inset-0 z-50 md:hidden">
             <div
-              className="absolute inset-0 bg-black/50"
+           className="absolute inset-0 bg-black/50 backdrop-blur-sm"
               onClick={() => setIsMobileMenuOpen(false)}
             />
-            <div className="absolute left-0 top-0 h-full w-[250px] bg-[#111111] transform transition-transform">
+          <div className="absolute left-0 top-0 h-full w-[250px] max-w-[80vw] bg-[#000000] transform transition-transform overflow-y-auto shadow-2xl">
               {SidebarSection}
             </div>
           </div>

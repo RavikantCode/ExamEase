@@ -27,7 +27,7 @@ const SidebarItem = ({ href, icon, selected, title, notification }: Props) => {
             {icon}
             <span
               className={cn(
-                'font-medium group-hover:text-[#909090] transition-all truncate w-32',
+                'font-medium group-hover:text-[#909090] transition-all truncate w-32 sm:w-36 md:w-40',
                 selected ? 'text-[#bababa]' : 'text-[#7c7c7c]'
               )}
             >

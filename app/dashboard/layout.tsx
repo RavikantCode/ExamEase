@@ -16,12 +16,10 @@ export default async function DashboardLayout({ children }: Props) {
 
   return (
     <div className="flex min-h-screen bg-[#111111]">
-        <div className="w-64 fixed h-full">
          <Sidebar session={session} />
-      </div>
 
-      <div className="flex-1 ml-61 flex flex-col">
-        <main className="p-1">{children}</main>
+      <div className="flex-1 md:ml-61 flex flex-col w-fulll">
+        <main className="p-1 pt-16 md:pt-1">{children}</main>
       </div>
     </div>
   );

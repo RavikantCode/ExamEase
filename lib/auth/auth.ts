@@ -5,13 +5,6 @@ import prisma from "@/prisma/src";
 
 import { NextAuthOptions } from "next-auth";
 
-interface CustomUser {
-  id: string;
-  name: string;
-  moodle_id: string;
-  role: string
-}
-
 
 export const authOptions:NextAuthOptions ={
     providers:[
