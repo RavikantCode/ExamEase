@@ -58,6 +58,7 @@ import {
   Bell
 } from "lucide-react";
 import FacultyRemunerationIcon from "@/components/ui/FacultyRenumerationIcon";
+import AcademicTimeTableIcon from "@/components/ui/AcademicTimetable";
 
 export interface MenuItem {
   title: string;
@@ -96,6 +97,12 @@ export const MENU_ITEMS: MenuItem[] = [
     title: "Seating Arrangement",
     href: "/dashboard/seating",
     icon: <Users size={18} />,
+    roles: ['ADMIN'] // Only admin
+  },
+  {
+    title: "Academic Timetable",
+    href: "/dashboard/academic-timetable",
+    icon: <AcademicTimeTableIcon></AcademicTimeTableIcon>,
     roles: ['ADMIN'] // Only admin
   },
   {

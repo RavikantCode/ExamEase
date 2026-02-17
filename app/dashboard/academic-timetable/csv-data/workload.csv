@@ -1,0 +1,82 @@
+instructor_name,course_code,subject_name,theory_hours,practical_hours
+Dr. Kiran Deshpande,2344115,Network Design Lab,0,6
+Prof. Ganesh Gourshete,ITL802,Cloud Computing Lab,0,12
+Prof. Ganesh Gourshete,ILO8011,Project Management,3,0
+Prof. Rujata Chaudhari,ITDO6014,Ethical Hacking & Forensics,3,0
+Prof. Rujata Chaudhari,2344411,Mini Project Paradigms,2,8
+Dr. Sonia Aneesh,PCC2011,Data Structure & Analysis,2,0
+Dr. Sonia Aneesh,PCC2011,Data Structure & Analysis Lab,0,6
+Dr. Sonia Aneesh,2344113,Computer Network & Network Design,3,0
+Dr. Sonia Aneesh,VSEC201,Workshop,0,2
+Prof. Apeksha Mohite,ITC601,Database Management & BI,3,0
+Prof. Apeksha Mohite,ITL601,Business Intelligence Lab,0,10
+Prof. Apeksha Mohite,MDC401,Microprocessor,3,0
+Prof. Geetanjali Kalme,ITC601,Database Management & BI,3,0
+Prof. Geetanjali Kalme,ITL601,Business Intelligence Lab,0,8
+Prof. Geetanjali Kalme,ITC801,Blockchain & DLT,3,0
+Prof. Sonal Jain,2344114,Unix Lab,0,4
+Prof. Sonal Jain,ITDO8024,Cloud Computing Services,3,0
+Prof. Sonal Jain,ITL802,Cloud Computing Lab,0,6
+Dr. Vaibhav Yavalkar,ITC603,Wireless Technology,6,0
+Dr. Vaibhav Yavalkar,MDL401,Microprocessor Lab,0,6
+Dr. Vaibhav Yavalkar,OEC401,Open Elective,2,0
+Dr. Vaibhav Yavalkar,VSEC201,Workshop,0,2
+Prof. Sonal Balpande,PCC2011,Data Structure & Analysis,2,0
+Prof. Sonal Balpande,PCC2011,Data Structure & Analysis Lab,0,6
+Prof. Sonal Balpande,ITL605,Data Science Python Lab,0,6
+Prof. Charul Singh,2994512,Design Thinking,2,0
+Prof. Charul Singh,ITL603,Sensor Lab,0,12
+Prof. Jayshree Jha,2344113,Computer Network & Network Design,3,0
+Prof. Jayshree Jha,2344115,Network Design Lab,0,8
+Prof. Jayshree Jha,ITDO8021,User Interface Design,3,0
+Prof. Shital Agrawal,ITC602,WebX,3,0
+Prof. Shital Agrawal,2344112,Operating System,3,0
+Prof. Shital Agrawal,ITL602,Web Lab,0,8
+Prof. Mandar Ganjapurkar,ITC801,Blockchain & DLT,3,0
+Prof. Mandar Ganjapurkar,ITL801,Blockchain Lab,0,6
+Prof. Mandar Ganjapurkar,VSEC202,Python,2,4
+Prof. Manjusha Kashilkar,ITL604,MAD & PWA Lab,0,10
+Prof. Manjusha Kashilkar,HCSC601,Digital Forensics,4,0
+Prof. Sneha Dalvi,HCSC801,Application Security,4,0
+Prof. Sneha Dalvi,VSEC202,Python,2,10
+Prof. Rucha Kulkarni,2344113,Computer Network & Network Design,3,0
+Prof. Rucha Kulkarni,2344115,Network Design Lab,0,4
+Prof. Rucha Kulkarni,2344411,Mini Project Paradigms,2,6
+Prof. Shafaque Syed,ITC604,AIDS-I,3,0
+Prof. Shafaque Syed,ITL605,Data Science Python Lab,0,12
+Prof. Sachin Kasare,ITC603,Wireless Technology,3,0
+Prof. Sachin Kasare,OEC401,Open Elective,4,0
+Prof. Sachin Kasare,2344114,Unix Lab,0,6
+Prof. Sachin Kasare,MDL401,Microprocessor Lab,0,2
+Prof. Randeep Kahlon,ILO8011,Project Management,3,0
+Prof. Randeep Kahlon,2344112,Operating System,3,0
+Prof. Randeep Kahlon,2994511,Business Model Development,0,8
+Prof. Urjashree Patil,2994511,Business Model Development,2,0
+Prof. Urjashree Patil,2994511,Business Model Development,0,10
+Prof. Urjashree Patil,ITC602,WebX,3,0
+Prof. Roshna Sangale,ITC602,WebX,3,0
+Prof. Roshna Sangale,ITL602,Web Lab,0,10
+Prof. Roshna Sangale,2344112,Operating System,3,0
+Prof. Vishal Badgujar,ITDO8011,Big Data Analysis,3,0
+Prof. Vishal Badgujar,2344114,Unix Lab,0,8
+Prof. Sujata Oak,ITDO6014,Ethical Hacking & Forensics,3,0
+Prof. Sujata Oak,2994512,Design Thinking,2,2
+Prof. Sujata Oak,PCC2011,Data Structure & Analysis,2,0
+Prof. Sujata Oak,PCC2011,Data Structure & Analysis Lab,0,6
+Prof. Seema Jadhav,VSEC202,Python,2,4
+Prof. Seema Jadhav,ITL603,Sensor Lab,0,6
+Prof. Seema Jadhav,ITDO8011,Big Data Analysis,3,0
+Prof. Saylee Lapalikar,ITL604,MAD & PWA Lab,0,8
+Prof. Saylee Lapalikar,ITL801,Blockchain Lab,0,4
+Prof. Saylee Lapalikar,2994511,Business Model Development,0,4
+Prof. Snehal Mali,ITDO8011,Big Data Analysis,3,0
+Prof. Snehal Mali,MDL401,Microprocessor Lab,0,10
+Prof. Snehal Mali,ITC604,AIDS-I,3,0
+Prof. Anupama Singh,ITC801,Blockchain & DLT,3,0
+Prof. Anupama Singh,ITL801,Blockchain Lab,0,8
+Prof. Anupama Singh,2994512,Design Thinking Lab,2,2
+Prof. Pranali Vhora,ITC604,AIDS-I,3,0
+Prof. Pranali Vhora,2994512,Design Thinking Lab,0,10
+Prof. Pranali Vhora,ITC601,Database Management & BI,3,0
+Prof. Nisha Jamkar,MDC401,Microprocessor,6,0
+Prof. Nisha Jamkar,2344411,Mini Project Paradigms,2,4

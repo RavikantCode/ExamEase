@@ -706,9 +706,9 @@ const [collegeLogoPreview, setCollegeLogoPreview] = useState<string>("");
                       className="w-full bg-[#1D1D1D] border border-neutral-700 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-[#8B5CF6]"
                     >
                       <option value="">Select</option>
-                      <option value="B.E.">B.E.</option>
-                      <option value="S.E.">S.E.</option>
-                      <option value="T.E.">T.E.</option>
+                      <option value="S.E.">S.E</option>
+                      <option value="T.E.">T.E</option>
+                      <option value="B.E.">B.E</option>
                     </select>
                   </div>
                   <div>
@@ -736,11 +736,12 @@ const [collegeLogoPreview, setCollegeLogoPreview] = useState<string>("");
                     className="w-full bg-[#1D1D1D] border border-neutral-700 rounded-lg p-2.5 text-sm text-white focus:outline-none focus:border-[#8B5CF6]"
                   >
                     <option value="">Select</option>
-                    <option value="VII">Semester VII</option>
-                    <option value="VI">Semester VI</option>
-                    <option value="V">Semester V</option>
-                    <option value="IV">Semester IV</option>
                     <option value="III">Semester III</option>
+                    <option value="IV">Semester IV</option>
+                    <option value="V">Semester V</option>
+                    <option value="VI">Semester VI</option>
+                    <option value="VII">Semester VII</option>
+                    <option value="VIII">Semester VIII</option>
                   </select>
                 </div>
 

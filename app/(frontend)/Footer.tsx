@@ -17,7 +17,7 @@ export default function Footer() {
               Discover how ExamEase can revolutionize your examination workflow. Contact us today for a demo.
             </p>
             <Link 
-              href="/demo" 
+                href="/auth/signin"
               className="inline-flex items-center px-6 py-3 rounded-full bg-white text-black hover:bg-gray-100 transition text-sm md:text-base"
             >
               Get Started →

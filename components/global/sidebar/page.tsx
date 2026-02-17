@@ -34,7 +34,7 @@ const Sidebar = ({session}:Props) => {
     <div className="bg-[#000000] fixed top-0 left-0 h-screen w-[250px] flex flex-col gap-4 p-4 overflow-hidden">
       
       <div className="flex flex-col items-center justify-center gap-1 p-4 w-full mb-4">
-  <div className="relative overflow-hidden h-36 w-36 rounded-xl flex items-center justify-center mb-2">
+  <div className="relative overflow-hidden h-32 w-32 rounded-xl flex items-center justify-center mb-2">
     <Image
       src="/logo-new.png"
       alt="opal-image"

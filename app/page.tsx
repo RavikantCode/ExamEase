@@ -41,7 +41,7 @@ export default function Home() {
 
             <div className="flex justify-center lg:justify-end order-1 lg:order-2">
               <Image 
-                src={'/man3.png'} 
+                src={'/ravi-real.png'} 
                 alt='Man_Image' 
                 height={300}
                 width={300}

@@ -1,0 +1,8 @@
+courseCode,courseName,maxStudents,lectureHours,practicalHours
+IT801,Distributed Systems,60,3,1
+IT802,Machine Learning,60,3,2
+IT803,Cloud Computing,60,4,0
+IT804,Information Security,60,3,1
+IT805,Project Management,60,2,0
+ITL806,Machine Learning Lab,30,0,2
+ITL807,Security Lab,30,0,2

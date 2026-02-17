@@ -13,6 +13,12 @@ enum Role {
   ADMIN
 }
 
+enum SubmissionStatus {
+  PENDING
+  SUBMITTED
+  VERIFIED
+  REJECTED
+}
 
 model User {
   id        String   @id @default(cuid())
@@ -31,6 +37,12 @@ model Faculty {
   department String
   semester   String
   email      String?
+  moodleId   String?   // Employee/Moodle ID for search and identification
+  submittedAt DateTime? @default(now())
+  status     SubmissionStatus @default(SUBMITTED)
+  claimedAmount  Int?    // Faculty-claimed total
+  verifiedAmount Int?    // Admin-verified total
+  remark     String?     // Admin remarks on verification
   activities Activity[]
 }
 
@@ -45,4 +57,185 @@ model Activity {
   rate       Int
   facultyId  Int
   faculty    Faculty @relation(fields: [facultyId], references: [id])
+}
+
+model Room {
+  id               String    @id @default(cuid())
+  roomNumber       String    @unique
+  seatingCapacity  Int
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  
+  classes          Class[]
+}
+
+
+model Instructor {
+  id               String    @id @default(cuid())
+  uid              String    @unique
+  name             String
+  abbreviation     String?   // Like GK, SRM, etc.
+  maxHoursPerWeek  Int       @default(16)
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  
+  courses          CourseInstructor[]
+  classes          Class[]
+  workload         Workload[]
+}
+
+model Course {
+  id               String    @id @default(cuid())
+  courseCode       String    @unique
+  courseName       String
+  maxStudents      Int       @default(60)
+  lectureHours     Int       @default(0)  // Theory hours per week
+  practicalHours   Int       @default(0)  // Lab hours per week
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  
+  instructors      CourseInstructor[]
+  departments      DepartmentCourse[]
+  classes          Class[]
+}
+
+
+model CourseInstructor {
+  id           String      @id @default(cuid())
+  courseId     String
+  instructorId String
+  
+  course       Course      @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  instructor   Instructor  @relation(fields: [instructorId], references: [id], onDelete: Cascade)
+  
+  @@unique([courseId, instructorId])
+}
+
+model Department {
+  id               String    @id @default(cuid())
+  name             String    @unique
+  abbreviation     String?   // Like IT, CS, etc.
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  
+  courses          DepartmentCourse[]
+  sections         Section[]
+}
+
+model DepartmentCourse {
+  id           String      @id @default(cuid())
+  departmentId String
+  courseId     String
+  
+  department   Department  @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+  course       Course      @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  
+  @@unique([departmentId, courseId])
+}
+
+model Section {
+  id               String    @id @default(cuid())
+  sectionName      String    // Like BE-C-VIII
+  departmentId     String
+  semester         Int
+  division         String    // A, B, C, etc.
+  numStudents      Int       @default(60)
+  classesPerWeek   Int       @default(30)  // Total class slots per week
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  
+  department       Department @relation(fields: [departmentId], references: [id], onDelete: Cascade)
+  classes          Class[]
+  timetables       Timetable[]
+  
+  @@unique([sectionName, departmentId])
+}
+
+model MeetingTime {
+  id               String    @id @default(cuid())
+  day              DayOfWeek
+  startTime        String    // "08:10"
+  endTime          String    // "09:05"
+  slotType         SlotType  @default(REGULAR)
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
+  
+  classes          Class[]
+  
+  @@unique([day, startTime, endTime])
+}
+
+model Class {
+  id               String       @id @default(cuid())
+  sectionId        String
+  courseId         String
+  instructorId     String
+  roomId           String
+  meetingTimeId    String
+  timetableId      String?
+  isLocked         Boolean      @default(false)  // Locked slots can't be changed
+  createdAt        DateTime     @default(now())
+  updatedAt        DateTime     @updatedAt
+  
+  section          Section      @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  course           Course       @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  instructor       Instructor   @relation(fields: [instructorId], references: [id], onDelete: Cascade)
+  room             Room         @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  meetingTime      MeetingTime  @relation(fields: [meetingTimeId], references: [id], onDelete: Cascade)
+  timetable        Timetable?   @relation(fields: [timetableId], references: [id])
+  
+  @@unique([sectionId, meetingTimeId, timetableId])
+  @@index([instructorId, meetingTimeId])
+  @@index([roomId, meetingTimeId])
+}
+
+model Timetable {
+  id               String       @id @default(cuid())
+  sectionId        String
+  academicYear     String       // "2025-26"
+  semester         String       // "EVEN" or "ODD"
+  generatedAt      DateTime     @default(now())
+  fitness          Float        @default(0)
+  conflicts        Int          @default(0)
+  isActive         Boolean      @default(false)
+  
+  section          Section      @relation(fields: [sectionId], references: [id], onDelete: Cascade)
+  classes          Class[]
+  
+  @@index([sectionId, isActive])
+}
+
+model Workload {
+  id               String      @id @default(cuid())
+  instructorId     String
+  courseCode       String
+  subjectName      String
+  theoryHours      Int         @default(0)
+  practicalHours   Int         @default(0)
+  totalHours       Int         @default(0)
+  academicYear     String      // "2025-26"
+  semester         String      // "EVEN"
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+  
+  instructor       Instructor  @relation(fields: [instructorId], references: [id], onDelete: Cascade)
+  
+  @@unique([instructorId, courseCode, academicYear, semester])
+}
+
+enum DayOfWeek {
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+}
+
+enum SlotType {
+  REGULAR
+  SHORT_BREAK
+  LONG_BREAK
+  MENTORING
+  PROJECT
 }
